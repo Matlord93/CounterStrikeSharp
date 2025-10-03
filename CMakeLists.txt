@@ -20,6 +20,9 @@ add_subdirectory(libraries/DynoHook)
 set_property(TARGET dynohook PROPERTY DYNO_ARCH_X86 64)
 set_property(TARGET funchook-static PROPERTY POSITION_INDEPENDENT_CODE ON)
 
+add_link_options(-Wl,-z,noexecstack)
+add_compile_options(-Wa,--noexecstack)
+
 include("makefiles/protobuf.cmake")
 
 set(SOURCE_FILES
